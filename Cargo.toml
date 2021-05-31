@@ -1,0 +1,29 @@
+[package]
+name = "snip"
+version = "0.1.0"
+authors = ["Marirs <marirs@gmail.com>"]
+description = "Rust Snipping tool"
+keywords = ["graphics", "image", "gui", "gdi"]
+repository = "https://github.com/marirs/snip-rs"
+readme = "README.md"
+license-file = "LICENSE"
+edition = "2018"
+
+[dependencies]
+scrap = "0.5"
+
+[target.'cfg(target_os = "linux")'.dependencies.xlib]
+git = "https://github.com/servo/rust-xlib"
+rev = "38ce24e62fbcca27976cb83c67eb5353fa00a882"
+
+[target.'cfg(not(target_os = "windows"))'.dependencies]
+libc = "0.2"
+
+[target.'cfg(target_os = "windows")'.dependencies.winapi]
+version = "0.3"
+features = ["windef", "ntdef", "minwindef", "wingdi", "winuser", "shellscalingapi"]
+
+[dev-dependencies]
+image = "0.23"
+base64 = "0.13.0"
+repng = "0.2.2"
