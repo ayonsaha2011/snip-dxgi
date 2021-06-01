@@ -38,7 +38,6 @@ fn flip_rgb(mut data: Vec<u8>, height: usize, width: usize, pixel_width: usize) 
 
 /// Get a screenshot of the requested display.
 pub fn screen_capture_gdi(screen: usize) -> ScreenResult {
-    println!("call screen_capture_gdi");
     use std::ptr::null_mut;
     unsafe {
         let mut dpi_awareness: shellscalingapi::PROCESS_DPI_AWARENESS = 0;

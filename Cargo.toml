@@ -10,7 +10,7 @@ license-file = "LICENSE"
 edition = "2018"
 
 [dependencies]
-scrap = "0.5"
+snip-lib = { path = "./lib" }
 
 [target.'cfg(target_os = "linux")'.dependencies.xlib]
 git = "https://github.com/servo/rust-xlib"

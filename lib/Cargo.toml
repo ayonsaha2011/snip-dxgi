@@ -1,0 +1,13 @@
+[package]
+name = "snip-lib"
+version = "0.1.0"
+authors = ["Marirs <marirs@gmail.com>"]
+description = "Rust Snipping tool"
+keywords = ["graphics", "image", "gui", "gdi"]
+edition = "2018"
+
+[dependencies]
+block = "0.1"
+cfg-if = "0.1"
+libc = "0.2"
+winapi = "0.2"

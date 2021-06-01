@@ -1,5 +1,5 @@
 use crate::{Screenshot, ScreenResult};
-use scrap::{Capturer, Display};
+use snip_lib::{Capturer, Display};
 use std::io::ErrorKind::WouldBlock;
 use std::fs::File;
 use std::thread;
@@ -8,7 +8,6 @@ use std::error::Error;
 
 /// Get a screenshot of the requested display.
 pub fn screen_capture_dxgi(screen: usize) -> ScreenResult {
-    println!("call screen_capture_dxgi");
     let one_second = Duration::new(1, 0);
     let one_frame = one_second / 60;
 

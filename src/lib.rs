@@ -1,6 +1,6 @@
 //! Capture a Screen of a display. The resulting screenshot is stored in
 //! the `Screenshot` struct, which varies per platform.
-extern crate scrap;
+extern crate snip_lib;
 // #![allow(unused_assignments)]
 #[cfg(windows)]
 #[path = "win/mod.rs"]

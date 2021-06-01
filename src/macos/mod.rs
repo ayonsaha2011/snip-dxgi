@@ -1,5 +1,5 @@
 use crate::{Screenshot, ScreenResult};
-use scrap::{Capturer, Display};
+use snip_lib::{Capturer, Display};
 use std::io::ErrorKind::WouldBlock;
 use std::fs::File;
 use std::thread;
@@ -8,7 +8,6 @@ use std::error::Error;
 
 /// Get a screenshot of the requested display.
 pub fn screen_capture(screen: usize) -> ScreenResult {
-    println!("call screen_capture_dxgi");
     let one_second = Duration::new(1, 0);
     let one_frame = one_second / 60;
 
@@ -38,7 +37,7 @@ pub fn screen_capture(screen: usize) -> ScreenResult {
 
 
         // Flip the ARGB image into a BGRA image.
-        let mut bitflipped = Vec::with_capacity(w * h * 8);
+        let mut bitflipped = Vec::with_capacity(w * h * 4);
         let stride = buffer.len() / h;
 
         for y in 0..h {
@@ -53,7 +52,7 @@ pub fn screen_capture(screen: usize) -> ScreenResult {
             }
         }
 
-        let pixel_width: usize = 8; // FIXME
+        let pixel_width: usize = 4; // FIXME
 
         break Ok(Screenshot {
             data: bitflipped,
